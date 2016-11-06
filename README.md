@@ -24,3 +24,9 @@ The following software is being used in this development:
 * Netbeans 8.1 IDE
 * Postgresql 9.6 database
 * JDBC 4.2
+
+The Netbeans project references the JDK 1.8 library, and a "JDBC42" library that points
+to the Postgres 9.4 JDBC connector JAR file.
+
+The project's working directory is used to store configuration information
+(set by Properties/Run/Working Directory) for database connectivity and locale.
