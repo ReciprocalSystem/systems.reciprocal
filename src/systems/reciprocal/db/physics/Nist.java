@@ -28,7 +28,7 @@ import systems.reciprocal.db.Physics;
  */
 public class Nist extends Physics {
 
-    public static final String TABLE = "physics.nist";
+    public static final String TABLE = SCHEMA + ".nist";
     /**
      * Atomic number.
      */

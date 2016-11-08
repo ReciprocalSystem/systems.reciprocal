@@ -26,7 +26,7 @@ import systems.reciprocal.db.Astronomy;
  */
 public class Hygv3 extends Astronomy {
 
-    public static final String TABLE = "astronomy.hygv3";
+    public static final String TABLE = SCHEMA + ".hygv3";
 
     /**
      * Database primary key.

@@ -25,7 +25,7 @@ import systems.reciprocal.db.Physics;
  */
 public class Lattice extends Physics {
 
-    public static final String TABLE = "physics.lattice";
+    public static final String TABLE = SCHEMA + ".lattice";
     /**
      * Lattice abbreviation (all caps)
      */

@@ -25,7 +25,7 @@ import systems.reciprocal.db.Astronomy;
  */
 public class Constellation extends Astronomy {
 
-    public static final String TABLE = "astronomy.constellation";
+    public static final String TABLE = SCHEMA + ".constellation";
     /**
      * IAC abbreviation for constellation.
      */

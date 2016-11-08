@@ -26,7 +26,7 @@ import systems.reciprocal.db.Astronomy;
  */
 public class Dso extends Astronomy {
 
-    public static final String TABLE = "astronomy.dso";
+    public static final String TABLE = SCHEMA + ".dso";
 
     /**
      * The object's right ascension, for epoch 2000.0 and equinox 2000.0.

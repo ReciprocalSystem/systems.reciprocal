@@ -16,6 +16,8 @@
  */
 package systems.reciprocal.db;
 
+import systems.reciprocal.Database;
+
 /**
  * Functions common to the astronomical schema and tables.
  *
@@ -23,4 +25,5 @@ package systems.reciprocal.db;
  */
 public class Astronomy extends Database {
 
+    public static final String SCHEMA = "astronomy";
 }

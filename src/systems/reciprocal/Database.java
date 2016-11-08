@@ -1,3 +1,5 @@
+package systems.reciprocal;
+
 /*
  * Copyright (C) 2016 Bruce Peret
  *
@@ -14,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package systems.reciprocal.db;
+
 
 import systems.reciprocal.Rs;
 

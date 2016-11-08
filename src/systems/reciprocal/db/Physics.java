@@ -16,6 +16,8 @@
  */
 package systems.reciprocal.db;
 
+import systems.reciprocal.Database;
+
 /**
  * Functions common to the physics schema and related tables.
  *
@@ -23,4 +25,5 @@ package systems.reciprocal.db;
  */
 public class Physics extends Database {
 
+    public static final String SCHEMA = "physics";
 }
