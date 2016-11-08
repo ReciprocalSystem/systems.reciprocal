@@ -16,12 +16,14 @@
  */
 package systems.reciprocal.db.astronomy;
 
+import systems.reciprocal.db.Astronomy;
+
 /**
  * Reference material on constellations.
  *
  * @author Bruce Peret
  */
-public class Constellation {
+public class Constellation extends Astronomy {
 
     public static final String TABLE = "astronomy.constellation";
     /**

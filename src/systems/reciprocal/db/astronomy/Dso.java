@@ -16,13 +16,15 @@
  */
 package systems.reciprocal.db.astronomy;
 
+import systems.reciprocal.db.Astronomy;
+
 /**
  * DSO (Deep Sky Object) stellar data, imported from the GitHub HYG-Database
  * https://github.com/astronexus/HYG-Database
  *
  * @author Bruce Peret
  */
-public class Dso {
+public class Dso extends Astronomy {
 
     public static final String TABLE = "astronomy.dso";
 

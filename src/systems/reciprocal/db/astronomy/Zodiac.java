@@ -16,12 +16,14 @@
  */
 package systems.reciprocal.db.astronomy;
 
+import systems.reciprocal.db.Astronomy;
+
 /**
  * Zodiac signs and their attributes.
  *
  * @author Bruce Peret
  */
-public class Zodiac {
+public class Zodiac extends Astronomy {
 
     public static final String TABLE = "astronomy.zodiac";
     /**

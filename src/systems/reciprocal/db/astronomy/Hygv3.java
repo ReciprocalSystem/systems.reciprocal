@@ -16,13 +16,15 @@
  */
 package systems.reciprocal.db.astronomy;
 
+import systems.reciprocal.db.Astronomy;
+
 /**
  * Hygv3 stellar data, imported from the GitHub HYG-Database
  * https://github.com/astronexus/HYG-Database
  *
  * @author Bruce Peret
  */
-public class Hygv3 {
+public class Hygv3 extends Astronomy {
 
     public static final String TABLE = "astronomy.hygv3";
 
