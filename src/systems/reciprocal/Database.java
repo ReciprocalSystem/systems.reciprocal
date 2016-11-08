@@ -1,5 +1,3 @@
-package systems.reciprocal;
-
 /*
  * Copyright (C) 2016 Bruce Peret
  *
@@ -16,17 +14,34 @@ package systems.reciprocal;
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+package systems.reciprocal;
 
-
-import systems.reciprocal.Rs;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  * Functions common to all database activity.
- * 
+ *
  * The physical database connection is from the parent Rs class.
  *
  * @author Bruce Peret
  */
 public class Database extends Rs {
 
+    /**
+     * Retrieve the last serial key insert value for a prepared statement.
+     *
+     * @param ps Prepared statement
+     * @return The integer serial number, or zero.
+     * @throws SQLException
+     */
+    public static int lastkey(PreparedStatement ps) throws SQLException {
+        int key = 0;
+        ResultSet rs = ps.getGeneratedKeys();
+        if (rs != null && rs.next()) {
+            key = rs.getInt(1);
+        }
+        return key;
+    }
 }
