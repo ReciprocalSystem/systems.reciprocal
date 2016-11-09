@@ -26,9 +26,9 @@ import systems.reciprocal.db.Physics;
  *
  * @author Bruce Peret
  */
-public class Nist extends Physics {
+public class Isotope extends Physics {
 
-    public static final String TABLE = SCHEMA + ".nist";
+    public static final String TABLE = SCHEMA + ".isotope";
     /**
      * Atomic number.
      */
@@ -103,4 +103,9 @@ public class Nist extends Physics {
      * materials.
      */
     String notes;
+    // The data here has been added to the NIST data table
+    /**
+     * Abundance of isotope in decimal percent (0.00-1.00).
+     */
+    double abundance;
 }
