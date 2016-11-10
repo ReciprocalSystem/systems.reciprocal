@@ -17,8 +17,13 @@
 package systems.reciprocal.model;
 
 /**
- * Generic handling of a multidimensional tuple. Unit and Location extend this
- * class as many of the functions are shared.
+ * Generic handling of a multidimensional tuple (vector).
+ *
+ * Using "tuple" from database concepts to avoid confusion with graphic vectors
+ * and matrices, which express things differently. The tuple can be used for:
+ * real, complex, quaternion or octonian rotations, or as homogeneous
+ * coordinates in the form [w x y z] (not [x y z w]), which is the proper way to
+ * express the vector.
  *
  * @author Bruce Peret
  */
@@ -100,8 +105,8 @@ public class Tuple {
 
     /**
      * Set the values of this instance from another Tuple. Only the minimum
-     * length is copied. If the v tuple is smaller than the existing tuple,
-     * the remaining values will be unchanged. If larger, they extra will be
+     * length is copied. If the v tuple is smaller than the existing tuple, the
+     * remaining values will be unchanged. If larger, they extra will be
      * dropped.
      *
      * @param v The tuple to copy.
