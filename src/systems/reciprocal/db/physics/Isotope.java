@@ -16,6 +16,9 @@
  */
 package systems.reciprocal.db.physics;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import systems.reciprocal.db.Physics;
 
 /**
@@ -108,4 +111,38 @@ public class Isotope extends Physics {
      * Abundance of isotope in decimal percent (0.00-1.00).
      */
     double abundance;
+
+    public Isotope(ResultSet rs) throws SQLException {
+        z = rs.getInt("z");
+        symbol = rs.getString("symbol");
+        isotope = rs.getInt("isotope");
+        relative_atomic_mass = rs.getDouble("relative_atomic_mass");
+        relative_atomic_mass_uncertainty = rs.getDouble("relative_atomic_mass_uncertainty");
+        isotopic_composition = rs.getDouble("isotopic_composition");
+        isotopic_composition_uncertainty = rs.getDouble("isotopic_composition_uncertainty");
+        standard_atomic_weight = rs.getDouble("standard_atomic_weight");
+        standard_atomic_weight_uncertainty = rs.getDouble("standard_atomic_weight_uncertainty");
+        notes = rs.getString("notes");
+        abundance = rs.getDouble("abundance");
+    }
+
+    @Override
+    public String toString() {
+        return "(" + isotope + "," + z + ")" + symbol;
+    }
+
+    public static Isotope get(int z, int n) throws SQLException {
+        Isotope i = null;
+        PreparedStatement ps = db.prepareStatement(
+            "SELECT * FROM " + TABLE + " WHERE z=? AND isotope=?"
+        );
+        ps.setInt(1, z);
+        ps.setInt(2, n);
+        try (ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                i = new Isotope(rs);
+            }
+        }
+        return i;
+    }
 }

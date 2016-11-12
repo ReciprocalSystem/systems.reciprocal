@@ -16,6 +16,8 @@
  */
 package systems.reciprocal;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -28,6 +30,15 @@ import java.sql.SQLException;
  * @author Bruce Peret
  */
 public class Database extends Rs {
+
+    /**
+     * Database connection
+     */
+    public static Connection db;
+
+    public static void connect(String uri, String user, String password) throws SQLException {
+        db = DriverManager.getConnection(uri, user, password);
+    }
 
     /**
      * Retrieve the last serial key insert value for a prepared statement.

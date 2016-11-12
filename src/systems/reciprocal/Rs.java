@@ -27,8 +27,8 @@ import java.util.TimeZone;
 
 /**
  * Rs class is a container for many things used in the system, such as
- * configuration, locale, timezone, and database connectivity.
- * This is a static class designed for use with applications.
+ * configuration, locale, timezone, and database connectivity. This is a static
+ * class designed for use with applications.
  *
  * @author Bruce Peret
  */
@@ -39,18 +39,17 @@ public class Rs {
     public static Properties config;
     public static Locale locale;
     public static TimeZone timezone;
-    public static Connection db;
 
     /**
      * Manufacture the basic setup used for RS applications.
-     * 
+     *
      * @throws IOException
-     * @throws SQLException 
+     * @throws SQLException
      */
     public static void factory() throws IOException, SQLException {
         /*
         * Load and parse configuration.ini
-        */
+         */
         config = new Properties();
         config.load(
             new FileReader(
@@ -59,31 +58,31 @@ public class Rs {
         );
         /*
         * Set up Locale language and region
-        */
+         */
         locale = new Locale(
             config.getProperty("language", "en"),
             config.getProperty("region", "US")
         );
         /*
         * Define time zone
-        */
+         */
         timezone = TimeZone.getTimeZone(
             config.getProperty("timezone", "UTC")
         );
         /*
         * Connect to the model database
-        */
-        
+         */
+
         String uri = "jdbc:postgresql:";
         String host = config.getProperty("host");
         if (host != null) {
-            uri += "//"+host+":"+config.getProperty("port","5432")+"/";
+            uri += "//" + host + ":" + config.getProperty("port", "5432") + "/";
         }
-        uri += config.getProperty("database","rsrs");
-        db = DriverManager.getConnection(
-                uri,
-                config.getProperty("user", "username"),
-                config.getProperty("password", "password")
+        uri += config.getProperty("database", "rsrs");
+        Database.connect(
+            uri,
+            config.getProperty("user", "username"),
+            config.getProperty("password", "password")
         );
     }
 }
