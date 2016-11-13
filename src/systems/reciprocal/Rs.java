@@ -18,8 +18,6 @@ package systems.reciprocal;
 
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Locale;
 import java.util.Properties;
@@ -35,6 +33,14 @@ import java.util.TimeZone;
 public class Rs {
 
     public static final String CONFIGFILE = "configuration.ini";
+    /**
+     * Larson's Inter-Regional Ratio (electric, 1D)
+     */
+    public static final double IRR1D = 128.*(1+1./9.);
+    /**
+     * Larson's Inter-Regional Ratio (magnetic, 2D)
+     */
+    public static final double IRR = 128*(1.+2./9.);
 
     public static Properties config;
     public static Locale locale;

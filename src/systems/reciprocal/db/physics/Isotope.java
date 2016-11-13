@@ -126,6 +126,11 @@ public class Isotope extends Physics {
         abundance = rs.getDouble("abundance");
     }
 
+    /**
+     * Display "(n,p)Symbol" for class string.
+     * 
+     * @return 
+     */
     @Override
     public String toString() {
         return "(" + isotope + "," + z + ")" + symbol;
