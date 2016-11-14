@@ -28,141 +28,141 @@ public class Element extends Physics {
     /**
      * Name of Element.
      */
-    String name;
+    public String name;
     /**
      * Symbol for Element.
      */
-    String symbol;
+    public String symbol;
     /**
      * Atomic number.
      */
-    int z;
+    public int z;
     /**
      * Relative atomic mass.
      */
-    double mass;
+    public double mass;
     /**
      * Density.
      */
-    double density;
+    public double density;
     /**
      * Conditions determining density.
      */
-    String density_condition;
+    public String density_condition;
     /**
      * Melting point.
      */
-    double melting_point;
+    public double melting_point;
     /**
      * Boiling point.
      */
-    double boiling_point;
+    public double boiling_point;
     /**
      * Atomic radius.
      */
-    double atomic_radius;
+    public double atomic_radius;
     /**
      * Covalent radius.
      */
-    double covalent_radius;
+    public double covalent_radius;
     /**
      * Specific volume.
      */
-    double specific_volume;
+    public double specific_volume;
     /**
      * Specific heat.
      */
-    double specific_heat;
+    public double specific_heat;
     /**
      * Bond condition for specific heat.
      */
-    String specific_heat_bond;
+    public String specific_heat_bond;
     /**
      * Heat of fusion.
      */
-    double heat_fusion;
+    public double heat_fusion;
     /**
      * Bond condition for heat of fusion.
      */
-    String heat_fusion_bond;
+    public String heat_fusion_bond;
     /**
      * Heat of evaporation.
      */
-    double heat_evaporation;
+    public double heat_evaporation;
     /**
      * Bond condition for heat of evaporation.
      */
-    String heat_evaporation_bond;
+    public String heat_evaporation_bond;
     /**
      * Thermal conductivity.
      */
-    double thermal_conductivity;
+    public double thermal_conductivity;
     /**
      * Pauling electronegativity.
      */
-    double pauling_electronegativity;
+    public double pauling_electronegativity;
     /**
      * First ionization energy.
      */
-    double first_ionization_energy;
+    public double first_ionization_energy;
     /**
      * Known Oxidation states.
      */
-    Integer[] oxidation_state;
+    public Integer[] oxidation_state;
     /**
      * Electronic configuration (triples, in hexadecimal).
      */
-    String electronic_configuration;
+    public String electronic_configuration;
     /**
      * Crystal lattice.
      */
-    String lattice;
+    public String lattice;
     /**
      * Lattice constant.
      */
-    double lattice_constant;
+    public double lattice_constant;
     /**
      * Reciprocal System displacements.
      */
-    Integer[] displacement;
+    public Integer[] displacement;
     /**
      * Electronic configuration base Element atomic number.
      */
-    int ec_base;
+    public int ec_base;
     /**
      * RS displacements, positive electric.
      */
-    Integer[] abcp;
+    public Integer[] abcp;
     /**
      * RS displacements, negative electric.
      */
-    Integer[] abcn;
+    public Integer[] abcn;
     /**
      * Number of electrons in outer s orbital.
      */
-    Integer[] s;
+    public Integer[] s;
     /**
      * Number of electrons in outer p orbital.
      */
-    Integer[] p;
+    public Integer[] p;
     /**
      * Number of electrons in outer d orbital.
      */
-    Integer[] d;
+    public Integer[] d;
     /**
      * Number of electrons in outer f orbital.
      */
-    Integer[] f;
+    public Integer[] f;
     /**
      * Magnetic orientation.
      */
-    String magnetic;
+    public String magnetic;
     /**
      * Critical temperature.
      */
-    double critical_temperature;
+    public double critical_temperature;
     /**
      * Critical pressure.
      */
-    double critical_pressure;
+    public double critical_pressure;
 }

@@ -21,6 +21,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javafx.scene.chart.XYChart;
 
 /**
  * Functions common to all database activity.
@@ -54,5 +55,26 @@ public class Database extends Rs {
             key = rs.getInt(1);
         }
         return key;
+    }
+    
+    /**
+     * Return an XY Chart Series for an SQL query.
+     * 
+     * @param ps Prepared statement to execute query on.
+     * @return series with data from first two columns of query.
+     * @throws SQLException 
+     */
+    public static XYChart.Series xychart(PreparedStatement ps) throws SQLException {
+        XYChart.Series series = new XYChart.Series();
+        try (ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                series.getData().add(
+                    new XYChart.Data(
+                        rs.getObject(1), rs.getObject(2)
+                    )
+                );
+            }
+        }
+        return series;
     }
 }

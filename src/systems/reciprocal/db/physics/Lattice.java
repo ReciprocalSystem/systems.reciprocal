@@ -29,9 +29,9 @@ public class Lattice extends Physics {
     /**
      * Lattice abbreviation (all caps)
      */
-    String lattice;
+    public String lattice;
     /**
      * Conventional name of structure
      */
-    String name;
+    public String name;
 }

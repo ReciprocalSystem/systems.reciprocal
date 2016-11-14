@@ -30,57 +30,57 @@ public class Abundance extends Physics {
     /**
      * Atomic number
      */
-    int z;
+    public int z;
     /**
      * Crust: CRC Handbook.
      */
-    double crust_crc;
+    public double crust_crc;
     /**
      * Crust: Kaye & Laby.
      */
-    double crust_kl;
+    public double crust_kl;
     /**
      * Crust: Greenwood.
      */
-    double crust_g;
+    public double crust_g;
     /**
      * Crust: Ahrens (Taylor).
      */
-    double crust_at;
+    public double crust_at;
     /**
      * Crust: Ahrens (Wanke).
      */
-    double crust_awa;
+    public double crust_awa;
     /**
      * Crust: Ahrens (Weaver).
      */
-    double crust_awe;
+    public double crust_awe;
     /**
      * Upper crust: Ahrens (Taylor).
      */
-    double upper_crust_at;
+    public double upper_crust_at;
     /**
      * Upper crust: Ahrens (Shaw).
      */
-    double upper_crust_as;
+    public double upper_crust_as;
     /**
      * Sea water: CRC Handbook.
      */
-    double sea_crc;
+    public double sea_crc;
     /**
      * Sea water: Kaye & Laby.
      */
-    double sea_kl;
+    public double sea_kl;
     /**
      * Sun: Kaye & Laby.
      */
-    double sun_kl;
+    public double sun_kl;
     /**
      * Solar System: Kaye & Laby.
      */
-    double solar_system_kl;
+    public double solar_system_kl;
     /**
      * Solar System: Ahrens.
      */
-    double solar_system_a;
+    public double solar_system_a;
 }

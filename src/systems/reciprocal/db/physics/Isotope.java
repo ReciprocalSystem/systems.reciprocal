@@ -19,6 +19,8 @@ package systems.reciprocal.db.physics;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import javafx.scene.chart.XYChart;
 import systems.reciprocal.db.Physics;
 
 /**
@@ -35,15 +37,15 @@ public class Isotope extends Physics {
     /**
      * Atomic number.
      */
-    int z;
+    public int z;
     /**
      * Atomic symbol.
      */
-    String symbol;
+    public String symbol;
     /**
      * Isotope number.
      */
-    int isotope;
+    public int isotope;
     /**
      * Relative Atomic Mass (of the isotope): A_r(X), where X is an isotope
      * [formerly called atomic weight; see Standard Atomic Weight below)]
@@ -54,11 +56,11 @@ public class Isotope extends Physics {
      * the value and error were derived not from purely experimental data, but
      * at least partly from systematic trends.
      */
-    double relative_atomic_mass;
+    public double relative_atomic_mass;
     /**
      * Uncertainty in the relative atomic mass.
      */
-    double relative_atomic_mass_uncertainty;
+    public double relative_atomic_mass_uncertainty;
     /**
      * In the opinion of the Subcommittee for Isotopic Abundance Measurements
      * (SIAM), these values represent the isotopic composition of the chemicals
@@ -69,11 +71,11 @@ public class Isotope extends Physics {
      * are consistent with the values published in Isotopic Compositions of the
      * Elements 2009.
      */
-    double isotopic_composition;
+    public double isotopic_composition;
     /**
      * Uncertainty in the isotopic composition.
      */
-    double isotopic_composition_uncertainty;
+    public double isotopic_composition_uncertainty;
     /**
      * Standard Atomic Weight (common usage): A_r(X), where X is an element
      * [more appropriately called relative atomic mass of the element]
@@ -84,11 +86,11 @@ public class Isotope extends Physics {
      * electronic ground state. These values are dependent on the origin and
      * treatment of the material.
      */
-    double standard_atomic_weight;
+    public double standard_atomic_weight;
     /**
      * Uncertainty in standard atomic weight.
      */
-    double standard_atomic_weight_uncertainty;
+    public double standard_atomic_weight_uncertainty;
     /**
      * g Geological materials are known in which the element has an isotopic
      * composition outside the limits for normal material. The difference
@@ -105,13 +107,19 @@ public class Isotope extends Physics {
      * atomic-weight value and uncertainty should be applicable to normal
      * materials.
      */
-    String notes;
+    public String notes;
     // The data here has been added to the NIST data table
     /**
      * Abundance of isotope in decimal percent (0.00-1.00).
      */
-    double abundance;
+    public double abundance;
 
+    /**
+     * Constructor to create an Isotope instance from a DB ResultSet.
+     *
+     * @param rs ResultSet containing row of isotope data.
+     * @throws SQLException
+     */
     public Isotope(ResultSet rs) throws SQLException {
         z = rs.getInt("z");
         symbol = rs.getString("symbol");
@@ -128,14 +136,22 @@ public class Isotope extends Physics {
 
     /**
      * Display "(n,p)Symbol" for class string.
-     * 
-     * @return 
+     *
+     * @return
      */
     @Override
     public String toString() {
         return "(" + isotope + "," + z + ")" + symbol;
     }
 
+    /**
+     * Get a single isotope from the database.
+     *
+     * @param z Atomic number.
+     * @param n Isotope number.
+     * @return Isotope or null if combination not found.
+     * @throws SQLException
+     */
     public static Isotope get(int z, int n) throws SQLException {
         Isotope i = null;
         PreparedStatement ps = db.prepareStatement(
@@ -150,4 +166,22 @@ public class Isotope extends Physics {
         }
         return i;
     }
+
+    /**
+     * Retrieve an ArrayList of Isotope instances based on an SQL query.
+     *
+     * @param ps Query with parameters resolved.
+     * @return ArrayList of Isotope instances.
+     * @throws SQLException
+     */
+    public static ArrayList<Isotope> query(PreparedStatement ps) throws SQLException {
+        ArrayList<Isotope> result = new ArrayList<>();
+        try (ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                result.add(new Isotope(rs));
+            }
+        }
+        return result;
+    }
+
 }
