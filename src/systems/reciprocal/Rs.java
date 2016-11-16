@@ -36,11 +36,19 @@ public class Rs {
     /**
      * Larson's Inter-Regional Ratio (electric, 1D)
      */
-    public static final double IRR1D = 128.*(1+1./9.);
+    public static final double IRR1D = 128. * (1 + 1. / 9.);
     /**
      * Larson's Inter-Regional Ratio (magnetic, 2D)
      */
-    public static final double IRR = 128*(1.+2./9.);
+    public static final double IRR = 128 * (1. + 2. / 9.);
+    /**
+     * Limit to atomic numbers.
+     */
+    public static final int Z_LIMIT = 118;
+    /**
+     * Mass limit.
+     */
+    public static final int MASS_LIMIT = Z_LIMIT * 2;
 
     public static Properties config;
     public static Locale locale;
@@ -90,5 +98,34 @@ public class Rs {
             config.getProperty("user", "username"),
             config.getProperty("password", "password")
         );
+    }
+
+    /**
+     * Calculate the standard atomic mass for an element and ionization leve.
+     *
+     * @param z Atomic number.
+     * @param ion Magnetic ionization level.
+     * @return Standard atomic mass in u.
+     */
+    public static double standard_mass(int z, int ion) {
+        return 2. * z + ion * z * z / IRR;
+    }
+
+    /**
+     * Determine the first unstable element given a magnetic ionization level.
+     *
+     * @param magnetic_ionization_level The magnetic ionization level.
+     * @return Atomic number.
+     */
+    public static int unstable_element(int magnetic_ionization_level) {
+        if (magnetic_ionization_level < 1) {
+            return Z_LIMIT;
+        } else {
+            return (int) Math.ceil(Math.sqrt(Z_LIMIT * 2 * IRR / magnetic_ionization_level
+                    + (IRR * IRR) / (magnetic_ionization_level * magnetic_ionization_level)
+                )
+                - IRR / magnetic_ionization_level
+            );
+        }
     }
 }
