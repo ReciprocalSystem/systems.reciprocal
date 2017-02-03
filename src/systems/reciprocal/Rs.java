@@ -101,7 +101,7 @@ public class Rs {
     }
 
     /**
-     * Calculate the standard atomic mass for an element and ionization leve.
+     * Calculate the standard atomic mass for an element and ionization level.
      *
      * @param z Atomic number.
      * @param ion Magnetic ionization level.
