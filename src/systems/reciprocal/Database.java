@@ -21,6 +21,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javafx.collections.ObservableList;
 import javafx.scene.chart.XYChart;
 
 /**
@@ -56,13 +57,13 @@ public class Database extends Rs {
         }
         return key;
     }
-    
+
     /**
      * Return an XY Chart Series for an SQL query.
-     * 
+     *
      * @param ps Prepared statement to execute query on.
      * @return series with data from first two columns of query.
-     * @throws SQLException 
+     * @throws SQLException
      */
     public static XYChart.Series xychart(PreparedStatement ps) throws SQLException {
         XYChart.Series series = new XYChart.Series();
@@ -76,5 +77,21 @@ public class Database extends Rs {
             }
         }
         return series;
+    }
+
+    public static ObservableList<XYChart.Data<Number, Number>> xychartdata(
+        PreparedStatement ps,
+        ObservableList<XYChart.Data<Number, Number>> data
+    ) throws SQLException {
+        try (ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                data.add(
+                    new XYChart.Data(
+                        rs.getObject(1), rs.getObject(2)
+                    )
+                );
+            }
+        }
+        return data;
     }
 }
